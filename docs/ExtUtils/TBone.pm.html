@@ -3,8 +3,8 @@
   <TITLE>ExtUtils::TBone</TITLE>
 </HEAD>
 <BODY 
-       bgcolor="#FFFFFF" link="#BE1B58" vlink="#8C337C" alink="#F28EAA">
-<A HREF="http://www.zeegee.com" TARGET="_top"><IMG SRC="icons/zeegee.gif" ALT="ZeeGee Software" ALIGN="RIGHT" BORDER="0"></A><A NAME="__TOP__"><H1>ExtUtils::TBone</H1>
+       bgcolor="#FFFFFF" link="#CC3366" vlink="#993366" alink="#FF6666">
+<FONT FACE="sans-serif" SIZE=-1><A HREF="http://www.zeegee.com" TARGET="_top"><IMG SRC="icons/zeegee.gif" ALT="ZeeGee Software" ALIGN="RIGHT" BORDER="0"></A><A NAME="__TOP__"><H1>ExtUtils::TBone</H1>
 </A><UL>
 <LI> <A HREF="#NAME">NAME</A>
 <LI> <A HREF="#SYNOPSIS">SYNOPSIS</A>
@@ -37,11 +37,11 @@
 <P>Include a copy of this module in your t directory (as t/ExtUtils/TBone.pm),
 and then write your t/*.t files like this:
 
-<PRE>
+<FONT SIZE=3 FACE="courier"><PRE>
     use lib &quot;./t&quot;;             # to pick up a ExtUtils::TBone
     use ExtUtils::TBone;
-</PRE>
-<PRE>
+</PRE></FONT>
+<FONT SIZE=3 FACE="courier"><PRE>
     # Make a tester... here are 3 different alternatives:
     my $T = typical ExtUtils::TBone;                 # standard log
     my $T = new ExtUtils::TBone;                     # no log 
@@ -66,7 +66,7 @@ and then write your t/*.t files like this:
      
     # End testing:
     $T-&gt;end;   
-</PRE>
+</PRE></FONT>
 
 
 <P><HR>
@@ -87,7 +87,7 @@ the contents of this file will be easier for you to investigate.
 
 <P>A typical log file output by this module looks like this:
 
-<PRE>
+<FONT SIZE=3 FACE="courier"><PRE>
     1..3
      
     ** A message logged with msg().
@@ -105,7 +105,7 @@ the contents of this file will be easier for you to investigate.
     3: ok 3
     
     END
-</PRE>
+</PRE></FONT>
 
 <P>Each test() is logged with the test name and results, and
 the test-number prefixes each line.
@@ -125,7 +125,7 @@ A blank line follows each test's record, for clarity.
 
 
 <DL>
-<P><DT><B><A NAME="item:new_ARGS">new [ARGS...]</A></B></DT>
+<P><DT><B><A NAME="item:new">new [ARGS...]</A></B></DT>
 <DD>
 <I>Class method, constructor.</I>
 Create a new tester.  Any arguments are sent to log_open().
@@ -147,7 +147,7 @@ the output log file.
 
 
 <DL>
-<P><DT><B><A NAME="item:begin_NUMTESTS">begin NUMTESTS</A></B></DT>
+<P><DT><B><A NAME="item:begin">begin NUMTESTS</A></B></DT>
 <DD>
 <I>Instance method.</I>
 Start testing.
@@ -157,67 +157,67 @@ Start testing.
 <I>Instance method.</I>
 End testing.
 
-<P><DT><B><A NAME="item:ok_BOOL_TESTNAME_PARAMHASH">ok BOOL, [TESTNAME], [PARAMHASH...]</A></B></DT>
+<P><DT><B><A NAME="item:ok">ok BOOL, [TESTNAME], [PARAMHASH...]</A></B></DT>
 <DD>
 <I>Instance method.</I>
 Do a test, and log some information connected with it.
 Use it like this:
 
-<PRE>
+<FONT SIZE=3 FACE="courier"><PRE>
     $T-&gt;ok(-e $dotforward);
-</PRE>
+</PRE></FONT>
 
 <P>Or better yet, like this:
 
-<PRE>
+<FONT SIZE=3 FACE="courier"><PRE>
     $T-&gt;ok((-e $dotforward), 
 	   &quot;Does the user have a .forward file?&quot;);
-</PRE>
+</PRE></FONT>
 
 <P>Or even better, like this:
 
-<PRE>
+<FONT SIZE=3 FACE="courier"><PRE>
     $T-&gt;ok((-e $dotforward), 
 	   &quot;Does the user have a .forward file?&quot;,
 	   User =&gt; $ENV{USER},
 	   Path =&gt; $dotforward,
 	   Fwd  =&gt; $ENV{FWD});
-</PRE>
+</PRE></FONT>
 
 <P>That last one, if it were test #3, would be logged as:
 
-<PRE>
+<FONT SIZE=3 FACE="courier"><PRE>
     3: Does the user have a .forward file?
     3:   User: &quot;alice&quot;
     3:   Path: &quot;/home/alice/.forward&quot;
     3:   Fwd: undef
     3: ok
-</PRE>
+</PRE></FONT>
 
 <P>You get the idea.  Note that defined quantities are logged with delimiters 
 and with all nongraphical characters suitably escaped, so you can see 
 evidence of unexpected whitespace and other badnasties.  
 Had &quot;Fwd&quot; been the string &quot;this\nand\nthat&quot;, you'd have seen:
 
-<PRE>
+<FONT SIZE=3 FACE="courier"><PRE>
     3:   Fwd: &quot;this\nand\nthat&quot;
-</PRE>
+</PRE></FONT>
 
 <P>And unblessed array refs like [&quot;this&quot;, &quot;and&quot;, &quot;that&quot;] are 
 treated as multiple values:
 
-<PRE>
+<FONT SIZE=3 FACE="courier"><PRE>
     3:   Fwd: &quot;this&quot;
     3:   Fwd: &quot;and&quot;
     3:   Fwd: &quot;that&quot;
-</PRE>
-<P><DT><B><A NAME="item:ok_eq_ASTRING_BSTRING_TESTNAME_PARAMHASH">ok_eq ASTRING, BSTRING, [TESTNAME], [PARAMHASH...]</A></B></DT>
+</PRE></FONT>
+<P><DT><B><A NAME="item:ok_eq">ok_eq ASTRING, BSTRING, [TESTNAME], [PARAMHASH...]</A></B></DT>
 <DD>
 <I>Instance method.</I>  
 Convenience front end to ok(): test whether <CODE>ASTRING eq BSTRING</CODE>, and
 logs the operands as 'A' and 'B'.
 
-<P><DT><B><A NAME="item:ok_eqnum_ANUM_BNUM_TESTNAME_PARAMHASH">ok_eqnum ANUM, BNUM, [TESTNAME], [PARAMHASH...]</A></B></DT>
+<P><DT><B><A NAME="item:ok_eqnum">ok_eqnum ANUM, BNUM, [TESTNAME], [PARAMHASH...]</A></B></DT>
 <DD>
 <I>Instance method.</I>  
 Convenience front end to ok(): test whether <CODE>ANUM == BNUM</CODE>, and
@@ -233,7 +233,7 @@ logs the operands as 'A' and 'B'.
 
 
 <DL>
-<P><DT><B><A NAME="item:log_open_PATH">log_open PATH</A></B></DT>
+<P><DT><B><A NAME="item:log_open">log_open PATH</A></B></DT>
 <DD>
 <I>Instance method.</I>
 Open a log file for messages to be output to.  This is invoked
@@ -245,13 +245,13 @@ for you automatically by <CODE>new(PATH)</CODE> and <CODE>typical()</CODE>.
 Close the log file and stop logging.  
 You shouldn't need to invoke this directly; the destructor does it.
 
-<P><DT><B><A NAME="item:log_MESSAGE">log MESSAGE...</A></B></DT>
+<P><DT><B><A NAME="item:log">log MESSAGE...</A></B></DT>
 <DD>
 <I>Instance method.</I>
 Log a message to the log file.  No alterations are made on the
 text of the message.  See msg() for an alternative.
 
-<P><DT><B><A NAME="item:msg_MESSAGE">msg MESSAGE...</A></B></DT>
+<P><DT><B><A NAME="item:msg">msg MESSAGE...</A></B></DT>
 <DD>
 <I>Instance method.</I>
 Log a message to the log file.  Lines are prefixed with &quot;** &quot; for clarity,
@@ -267,7 +267,7 @@ and a terminating newline is forced.
 
 
 <DL>
-<P><DT><B><A NAME="item:catdir_DIR_DIR">catdir DIR, ..., DIR</A></B></DT>
+<P><DT><B><A NAME="item:catdir">catdir DIR, ..., DIR</A></B></DT>
 <DD>
 <I>Class/instance method.</I>
 Concatenate several directories into a path ending in a directory.
@@ -282,7 +282,7 @@ which is processed specially.
 <P>On Mac, the path <I>does</I> end in a ':'.
 On Unix, the path <I>does not</I> end in a '/'.
 
-<P><DT><B><A NAME="item:catfile_DIR_DIR_FILE">catfile DIR, ..., DIR, FILE</A></B></DT>
+<P><DT><B><A NAME="item:catfile">catfile DIR, ..., DIR, FILE</A></B></DT>
 <DD>
 <I>Class/instance method.</I>
 Like catdir(), but last element is assumed to be a file.
@@ -297,26 +297,26 @@ Note that, at a minimum, you must supply at least a single DIR.
 
 
 <P><B>Current version:</B>
-$Id: TBone.pm,v 1.116 2000/03/23 07:17:40 eryq Exp $
+$Id: TBone.pm,v 1.117 2000/08/16 05:08:09 eryq Exp $
 
 
 
 <DL>
-<P><DT><B><A NAME="item:Version_1_116">Version 1.116</A></B></DT>
+<P><DT><B><A NAME="item:Version">Version 1.116</A></B></DT>
 <DD>
 Cosmetic improvements only.
 
-<P><DT><B><A NAME="item:Version_1_112">Version 1.112</A></B></DT>
+<P><DT><B><A NAME="item:Version">Version 1.112</A></B></DT>
 <DD>
 Added lightweight catdir() and catfile() (a la File::Spec)
 to enhance portability to Mac environment.
 
-<P><DT><B><A NAME="item:Version_1_111">Version 1.111</A></B></DT>
+<P><DT><B><A NAME="item:Version">Version 1.111</A></B></DT>
 <DD>
 Now uses File::Basename to create &quot;typical&quot; logfile name,
 for portability.
 
-<P><DT><B><A NAME="item:Version_1_110">Version 1.110</A></B></DT>
+<P><DT><B><A NAME="item:Version">Version 1.110</A></B></DT>
 <DD>
 Fixed bug in constructor that surfaced if no log was being used. 
 
@@ -336,7 +336,7 @@ President, ZeeGee Software Inc. (<I><FILE><A HREF="http://www.zeegee.com">http:/
 
 <P><HR>
 <ADDRESS><FONT SIZE=-1>
-Generated Thu Mar 23 02:17:57 2000 by cvu_pod2html
+Generated Wed Aug 16 01:09:27 2000 by cvu_pod2html
 </FONT></ADDRESS>
-</BODY>
+</FONT></BODY>
 </HTML>
