@@ -154,7 +154,11 @@ PUBLIC INTERFACE
         with "** " for clarity, and a terminating newline is forced.
 
 CHANGE LOG
-    Current version: $Id: TBone.pm,v 1.110 1999/04/17 05:12:29 eryq Exp $
+    Current version: $Id: TBone.pm,v 1.111 1999/04/18 04:07:28 eryq Exp $
+
+    Version 1.111
+        Now uses File::Basename to create "typical" logfile name, for
+        portability.
 
     Version 1.110
         Fixed bug in constructor that surfaced if no log was being used.
