@@ -83,7 +83,7 @@ use vars qw($VERSION);
 use FileHandle;
 
 # The package version, both in 1.23 style *and* usable by MakeMaker:
-$VERSION = substr q$Revision: 1.106 $, 10;
+$VERSION = substr q$Revision: 1.107 $, 10;
 
 
 #------------------------------
@@ -234,7 +234,7 @@ treated as multiple values:
 =cut
 
 sub ok { 
-    my ($self, $ok, $test, %p) = @_;
+    my ($self, $ok, $test, @ps) = @_;
     ++($self->{Count});      # next test
 
     # Report to harness:
@@ -243,9 +243,8 @@ sub ok {
 
     # Log:
     $self->ln_print($test, "\n") if $test;
-    my ($k, $v);
-    foreach $k (sort keys %p) {
-	my $v = $p{$k};
+    while (@ps) {
+	my ($k, $v) = (shift @ps, shift @ps);
 	my @vs = ((ref($v) and (ref($v) eq 'ARRAY'))? @$v : ($v));
 	foreach (@vs) { 
 	    s{([\n\t\x00-\x1F\x7F-\xFF\\"])}{'\\'.sprintf("%02X",ord($1)) }exg;
@@ -254,6 +253,7 @@ sub ok {
 	}
     }
     $self->ln_print($status, "\n");
+    $self->l_print("\n");
     1;
 }
 
@@ -364,7 +364,7 @@ sub ln_print {
 
 =head1 VERSION
 
-Revision: $Revision: 1.106 $
+Revision: $Revision: 1.107 $
 
 Created: Friday-the-13th of February, 1998.
 
