@@ -88,7 +88,8 @@ use FileHandle;
 use File::Basename;
 
 # The package version, both in 1.23 style *and* usable by MakeMaker:
-$VERSION = substr q$Revision: 1.111 $, 10;
+$VERSION = substr q$Revision: 1.113 $, 10;
+
 
 
 #------------------------------
@@ -125,7 +126,7 @@ sub new {
 
 I<Class method, constructor.>
 Create a typical tester.  Use this instead of new() for most applicaitons.
-The directory "./testout" is created for you automatically, to hold
+The directory "testout" is created for you automatically, to hold
 the output log file.
 
 =cut
@@ -135,10 +136,10 @@ sub typical {
     my ($tfile) = basename $0;
     unless (-d "testout") {
 	mkdir "testout", 0755 
-	    or die "Couldn't create a ./testout directory: $!\n";
+	    or die "Couldn't create a 'testout' subdirectory: $!\n";
 	### warn "$class: created 'testout' directory\n";
     }
-    $class->new("testout/${tfile}log");
+    $class->new($class->catfile('.', 'testout', "${tfile}log"));
 }
 
 #------------------------------
@@ -416,13 +417,78 @@ sub ln_print {
 
 =back
 
+=head2 Utilities
+
+=over 4
+
+=cut
+
+#------------------------------
+
+=item catdir DIR, ..., DIR
+
+I<Class/instance method.>
+Concatenate several directories into a path ending in a directory.
+Lightweight version of the one in the (very new) File::Spec.
+
+Paths are assumed to be absolute.
+To signify a relative path, the first DIR must be ".",
+which is processed specially.
+
+On Mac, the path I<does> end in a ':'.
+On Unix, the path I<does not> end in a '/'.
+
+=cut
+
+sub catdir {
+    my $self = shift;
+    my $relative = shift @_ if ($_[0] eq '.');
+    if ($^O eq 'Mac') {
+	return ($relative ? ':' : '') . (join ':', @_) . ':';
+    }
+    else {
+	return ($relative ? './' : '/') . join '/', @_;
+    }
+}
+
+#------------------------------
+
+=item catfile DIR, ..., DIR, FILE
+
+I<Class/instance method.>
+Like catdir(), but last element is assumed to be a file.
+Note that, at a minimum, you must supply at least a single DIR. 
+
+=cut
+
+sub catfile {
+    my $self = shift;
+    my $file = pop;
+    if ($^O eq 'Mac') {
+	return $self->catdir(@_) . $file;
+    }
+    else {
+	return $self->catdir(@_) . "/$file";
+    }
+}
+
+#------------------------------
+
+=back
+
 
 =head1 CHANGE LOG
 
 B<Current version:>
-$Id: TBone.pm,v 1.111 1999/04/18 04:07:28 eryq Exp $
+$Id: TBone.pm,v 1.113 1999/05/12 15:04:28 eryq Exp $
 
 =over 4
+
+
+=item Version 1.112
+
+Added lightweight catdir() and catfile() (a la File::Spec)
+to enhance portability to Mac environment.
 
 
 =item Version 1.111

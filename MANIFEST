@@ -1,6 +1,7 @@
 MANIFEST
 Makefile.PL
 README
+README.system
 docs/ExtUtils/TBone.pm.html
 lib/ExtUtils/TBone.pm
 t/roman.t

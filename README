@@ -75,7 +75,7 @@ PUBLIC INTERFACE
 
     typical
         *Class method, constructor.* Create a typical tester. Use this
-        instead of new() for most applicaitons. The directory "./testout" is
+        instead of new() for most applicaitons. The directory "testout" is
         created for you automatically, to hold the output log file.
 
   Doing tests
@@ -153,8 +153,30 @@ PUBLIC INTERFACE
         *Instance method.* Log a message to the log file. Lines are prefixed
         with "** " for clarity, and a terminating newline is forced.
 
+  Utilities
+
+    catdir DIR, ..., DIR
+        *Class/instance method.* Concatenate several directories into a path
+        ending in a directory. Lightweight version of the one in the (very
+        new) File::Spec.
+
+        Paths are assumed to be absolute. To signify a relative path, the
+        first DIR must be ".", which is processed specially.
+
+        On Mac, the path *does* end in a ':'. On Unix, the path *does not*
+        end in a '/'.
+
+    catfile DIR, ..., DIR, FILE
+        *Class/instance method.* Like catdir(), but last element is assumed
+        to be a file. Note that, at a minimum, you must supply at least a
+        single DIR.
+
 CHANGE LOG
-    Current version: $Id: TBone.pm,v 1.111 1999/04/18 04:07:28 eryq Exp $
+    Current version: $Id: TBone.pm,v 1.113 1999/05/12 15:04:28 eryq Exp $
+
+    Version 1.112
+        Added lightweight catdir() and catfile() (a la File::Spec) to
+        enhance portability to Mac environment.
 
     Version 1.111
         Now uses File::Basename to create "typical" logfile name, for

@@ -26,6 +26,7 @@
 <LI><A HREF="#construction">Construction</A>
 </LI><LI><A HREF="#doing_tests">Doing tests</A>
 </LI><LI><A HREF="#logging_messages">Logging messages</A>
+</LI><LI><A HREF="#utilities">Utilities</A>
 </LI></UL>
 <LI><A HREF="#change_log">CHANGE LOG</A>
 </LI><LI><A HREF="#author">AUTHOR</A>
@@ -205,7 +206,7 @@ Create a new tester.  Any arguments are sent to log_open().
 
 <I>Class method, constructor.</I>
 Create a typical tester.  Use this instead of new() for most applicaitons.
-The directory &quot;./testout&quot; is created for you automatically, to hold
+The directory &quot;testout&quot; is created for you automatically, to hold
 the output log file.
 
 </DL>
@@ -349,6 +350,40 @@ and a terminating newline is forced.
 </DL>
 
 
+<P><HR>
+<A NAME="utilities">
+<H2>
+Utilities</H2>
+</A>
+
+<DL>
+<P><DT><B><A NAME="catdir">catdir DIR, ..., DIR</A></B><DD>
+
+<I>Class/instance method.</I>
+Concatenate several directories into a path ending in a directory.
+Lightweight version of the one in the (very new) File::Spec.
+
+
+<P>
+Paths are assumed to be absolute.
+To signify a relative path, the first DIR must be &quot;.&quot;,
+which is processed specially.
+
+
+<P>
+On Mac, the path <I>does</I> end in a ':'.
+On Unix, the path <I>does not</I> end in a '/'.
+
+
+<P><DT><B><A NAME="catfile">catfile DIR, ..., DIR, FILE</A></B><DD>
+
+<I>Class/instance method.</I>
+Like catdir(), but last element is assumed to be a file.
+Note that, at a minimum, you must supply at least a single DIR.
+
+</DL>
+
+
 <PRE></PRE>
 
 
@@ -362,13 +397,23 @@ CHANGE LOG</H1>
 
 <P>
 <B>Current version:</B>
-$Id: TBone.pm,v 1.111 1999/04/18 04:07:28 eryq Exp $
+$Id: TBone.pm,v 1.113 1999/05/12 15:04:28 eryq Exp $
 
 
 <PRE></PRE>
 
 
 <DL>
+<P><DT><B><A NAME="version">Version 1.112</A></B><DD>
+
+Added lightweight catdir() and catfile() (a la File::Spec)
+to enhance portability to Mac environment.
+
+
+<PRE></PRE>
+
+
+
 <P><DT><B><A NAME="version">Version 1.111</A></B><DD>
 
 Now uses File::Basename to create &quot;typical&quot; logfile name,
@@ -407,5 +452,5 @@ Eryq; President, Zero G Inc.
 
 
 <P><HR>
-<SMALL>Last updated: Sun Apr 18 00:08:01 1999 local time</SMALL></BODY>
+<SMALL>Last updated: Wed May 12 11:06:49 1999 local time</SMALL></BODY>
 </HTML>
