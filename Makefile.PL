@@ -10,7 +10,7 @@ WriteMakefile(
 	      NAME         => 'ExtUtils::TBone',
 	      VERSION_FROM => "./lib/ExtUtils/TBone.pm",
 	      'dist'       => {
-		  PREOP    => "./MakefileZG.PL ; make -f MakefileZG",
+		  PREOP    => "cvu_perl_preop",
 		  COMPRESS => 'gzip',
 		  SUFFIX   => 'gz',
 	      }
