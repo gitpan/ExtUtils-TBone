@@ -39,7 +39,7 @@ ok 1
 ok 2
 ok 3
 not ok 4
-END
+# END
 EOF
 open TOUT, "<$tout" or die "open $tout: $!";
 my $got_out = join '', <TOUT>;
@@ -51,3 +51,7 @@ $T->ok($expect_out eq $got_out,
 
 ### END REAL TEST:
 $T->end;
+
+
+
+
