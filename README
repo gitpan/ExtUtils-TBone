@@ -1,0 +1,41 @@
+NAME
+    ExtUtils::TBone - a "skeleton" for writing "t/*.t" test files.
+
+SYNOPSIS
+    Include a copy of this module in your t directory (as
+    t/ExtUtils/TBone.pm), and then write your t/*.t files like this:
+
+        use lib "./t";             # to pick up a ExtUtils::TBone
+        use ExtUtils::TBone;
+
+        # Make a tester... here are 3 different alternatives:
+        my $T = typical ExtUtils::TBone;                 # standard log
+        my $T = new ExtUtils::TBone;                     # no log 
+        my $T = new ExtUtils::TBone "testout/Foo.tlog";  # explicit log
+        
+        # Begin testing, and expect 3 tests in all:
+        $T->begin(3);                           # expect 3 tests
+        $T->msg("Something for the log file");  # message for the log
+        
+        # Run some tests:    
+        $T->ok($this);                  # test 1: no real info logged
+        $T->ok($that,                   # test 2: logs a comment
+               "Is that ok, or isn't it?"); 
+        $T->ok(($this eq $that),        # test 3: logs comment + vars 
+               "Do they match?",
+               This => $this,
+               That => $that);
+        
+        # End testing:
+        $T->end;   
+
+DESCRIPTION
+    This module is intended for folks who release CPAN modules with "t/*.t"
+    tests. It makes it easy for you to output syntactically correct test-
+    output while at the same time logging all test activity to a log file.
+    Hopefully, bug reports which include the contents of this file will be
+    easier for you to investigate.
+
+AUTHOR
+    Eryq; President, Zero G Inc. eryq@zeegee.com / http://www.zeegee.com.
+
