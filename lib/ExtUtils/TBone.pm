@@ -87,7 +87,7 @@ use vars qw($VERSION);
 use FileHandle;
 
 # The package version, both in 1.23 style *and* usable by MakeMaker:
-$VERSION = substr q$Revision: 1.109 $, 10;
+$VERSION = substr q$Revision: 1.110 $, 10;
 
 
 #------------------------------
@@ -115,6 +115,7 @@ sub new {
 	Count=>0,
     }, shift;
     $self->log_open(@_) if @_;
+    $self;
 }
 
 #------------------------------
@@ -412,9 +413,19 @@ sub ln_print {
 
 =back
 
-=head1 VERSION
 
-Revision: $Revision: 1.109 $
+=head1 CHANGE LOG
+
+B<Current version:>
+$Id: TBone.pm,v 1.110 1999/04/17 05:12:29 eryq Exp $
+
+=over 4
+
+=item Version 1.110
+
+Fixed bug in constructor that surfaced if no log was being used. 
+
+=back
 
 Created: Friday-the-13th of February, 1998.
 
