@@ -1,26 +1,56 @@
 <HTML>
 <HEAD>
-  <TITLE>ExtUtils::TBone</TITLE>
+  <TITLE>ExtUtils::TBone 1.121</TITLE>
 </HEAD>
 <BODY 
        bgcolor="#FFFFFF" link="#CC3366" vlink="#993366" alink="#FF6666">
-<FONT FACE="sans-serif" SIZE=-1><A HREF="http://www.zeegee.com" TARGET="_top"><IMG SRC="icons/zeegee.gif" ALT="ZeeGee Software" ALIGN="RIGHT" BORDER="0"></A><A NAME="__TOP__"><H1>ExtUtils::TBone</H1>
+<FONT FACE="sans-serif" SIZE=-1><A HREF="http://www.zeegee.com" TARGET="_top"><IMG SRC="icons/zeegee.gif" ALT="ZeeGee Software" ALIGN="RIGHT" BORDER="0"></A><A NAME="__TOP__"><H1>ExtUtils::TBone 1.121</H1>
 </A><UL>
-<LI> <A HREF="#NAME">NAME</A>
-<LI> <A HREF="#SYNOPSIS">SYNOPSIS</A>
-<LI> <A HREF="#DESCRIPTION">DESCRIPTION</A>
-<LI> <A HREF="#LOG_FILE">LOG FILE</A>
-<LI> <A HREF="#PUBLIC_INTERFACE">PUBLIC INTERFACE</A>
+<LI> <A NAME="menu:NAME"><A HREF="#NAME">NAME</A></A>
+<LI> <A NAME="menu:SYNOPSIS"><A HREF="#SYNOPSIS">SYNOPSIS</A></A>
+<LI> <A NAME="menu:DESCRIPTION"><A HREF="#DESCRIPTION">DESCRIPTION</A></A>
+<LI> <A NAME="menu:LOG_FILE"><A HREF="#LOG_FILE">LOG FILE</A></A>
+<LI> <A NAME="menu:PUBLIC_INTERFACE"><A HREF="#PUBLIC_INTERFACE">PUBLIC INTERFACE</A></A>
 <UL>
-<LI> <A HREF="#Construction">Construction</A>
-<LI> <A HREF="#Doing_tests">Doing tests</A>
-<LI> <A HREF="#Logging_messages">Logging messages</A>
-<LI> <A HREF="#Utilities">Utilities</A>
+<LI> <A NAME="menu:Construction"><A HREF="#Construction">Construction</A></A>
+<UL>
+<LI> <A NAME="menu:item:new_ARGS"><A HREF="#item:new_ARGS">new [ARGS...]</A></A>
+<LI> <A NAME="menu:item:typical"><A HREF="#item:typical">typical</A></A>
 </UL>
-<LI> <A HREF="#CHANGE_LOG">CHANGE LOG</A>
-<LI> <A HREF="#AUTHOR">AUTHOR</A>
+<LI> <A NAME="menu:Doing_tests"><A HREF="#Doing_tests">Doing tests</A></A>
+<UL>
+<LI> <A NAME="menu:item:begin_NUMTESTS"><A HREF="#item:begin_NUMTESTS">begin NUMTESTS</A></A>
+<LI> <A NAME="menu:item:end"><A HREF="#item:end">end</A></A>
+<LI> <A NAME="menu:item:ok_BOOL_TESTNAME_PARAMHASH"><A HREF="#item:ok_BOOL_TESTNAME_PARAMHASH">ok BOOL, [TESTNAME], [PARAMHASH...]</A></A>
+<LI> <A NAME="menu:item:ok_eq_ASTRING_BSTRING_TESTNAME_PARAMHASH"><A HREF="#item:ok_eq_ASTRING_BSTRING_TESTNAME_PARAMHASH">ok_eq ASTRING, BSTRING, [TESTNAME], [PARAMHASH...]</A></A>
+<LI> <A NAME="menu:item:ok_eqnum_ANUM_BNUM_TESTNAME_PARAMHASH"><A HREF="#item:ok_eqnum_ANUM_BNUM_TESTNAME_PARAMHASH">ok_eqnum ANUM, BNUM, [TESTNAME], [PARAMHASH...]</A></A>
 </UL>
-</A>
+<LI> <A NAME="menu:Logging_messages"><A HREF="#Logging_messages">Logging messages</A></A>
+<UL>
+<LI> <A NAME="menu:item:log_open_PATH"><A HREF="#item:log_open_PATH">log_open PATH</A></A>
+<LI> <A NAME="menu:item:log_close"><A HREF="#item:log_close">log_close</A></A>
+<LI> <A NAME="menu:item:log_warnings"><A HREF="#item:log_warnings">log_warnings</A></A>
+<LI> <A NAME="menu:item:log_MESSAGE"><A HREF="#item:log_MESSAGE">log MESSAGE...</A></A>
+<LI> <A NAME="menu:item:msg_MESSAGE"><A HREF="#item:msg_MESSAGE">msg MESSAGE...</A></A>
+</UL>
+<LI> <A NAME="menu:Utilities"><A HREF="#Utilities">Utilities</A></A>
+<UL>
+<LI> <A NAME="menu:item:catdir_DIR_DIR"><A HREF="#item:catdir_DIR_DIR">catdir DIR, ..., DIR</A></A>
+<LI> <A NAME="menu:item:catfile_DIR_DIR_FILE"><A HREF="#item:catfile_DIR_DIR_FILE">catfile DIR, ..., DIR, FILE</A></A>
+</UL>
+</UL>
+<LI> <A NAME="menu:VERSION"><A HREF="#VERSION">VERSION</A></A>
+<LI> <A NAME="menu:CHANGE_LOG"><A HREF="#CHANGE_LOG">CHANGE LOG</A></A>
+<UL>
+<LI> <A NAME="menu:item:Version_1_120_2001_08_17"><A HREF="#item:Version_1_120_2001_08_17">Version 1.120   (2001/08/17)</A></A>
+<LI> <A NAME="menu:item:Version_1_116_2000_03_23"><A HREF="#item:Version_1_116_2000_03_23">Version 1.116   (2000/03/23)</A></A>
+<LI> <A NAME="menu:item:Version_1_112_1999_05_12"><A HREF="#item:Version_1_112_1999_05_12">Version 1.112   (1999/05/12)</A></A>
+<LI> <A NAME="menu:item:Version_1_111_1999_04_18"><A HREF="#item:Version_1_111_1999_04_18">Version 1.111   (1999/04/18)</A></A>
+<LI> <A NAME="menu:item:Version_1_110_1999_04_17"><A HREF="#item:Version_1_110_1999_04_17">Version 1.110   (1999/04/17)</A></A>
+</UL>
+<LI> <A NAME="menu:AUTHOR"><A HREF="#AUTHOR">AUTHOR</A></A>
+</UL>
+
 
 <P><HR>
 <A NAME="NAME"><H2><A HREF="#__TOP__"><IMG SRC="icons/h1bullet.gif" ALT="Top" BORDER="0"></A> NAME</H2></A>
@@ -125,12 +155,12 @@ A blank line follows each test's record, for clarity.
 
 
 <DL>
-<P><DT><B><A NAME="item:new">new [ARGS...]</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:new"><A NAME="item:new_ARGS">new [ARGS...]</A></A></B></DT>
 <DD>
 <I>Class method, constructor.</I>
 Create a new tester.  Any arguments are sent to log_open().
 
-<P><DT><B><A NAME="item:typical">typical</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:typical">typical</A></B></DT>
 <DD>
 <I>Class method, constructor.</I>
 Create a typical tester.  Use this instead of new() for most applicaitons.
@@ -147,17 +177,17 @@ the output log file.
 
 
 <DL>
-<P><DT><B><A NAME="item:begin">begin NUMTESTS</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:begin"><A NAME="item:begin_NUMTESTS">begin NUMTESTS</A></A></B></DT>
 <DD>
 <I>Instance method.</I>
 Start testing.
 
-<P><DT><B><A NAME="item:end">end</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:end">end</A></B></DT>
 <DD>
 <I>Instance method.</I>
 End testing.
 
-<P><DT><B><A NAME="item:ok">ok BOOL, [TESTNAME], [PARAMHASH...]</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:ok"><A NAME="item:ok_BOOL_TESTNAME_PARAMHASH">ok BOOL, [TESTNAME], [PARAMHASH...]</A></A></B></DT>
 <DD>
 <I>Instance method.</I>
 Do a test, and log some information connected with it.
@@ -211,13 +241,13 @@ treated as multiple values:
     3:   Fwd: &quot;and&quot;
     3:   Fwd: &quot;that&quot;
 </PRE></FONT>
-<P><DT><B><A NAME="item:ok_eq">ok_eq ASTRING, BSTRING, [TESTNAME], [PARAMHASH...]</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:ok_eq"><A NAME="item:ok_eq_ASTRING_BSTRING_TESTNAME_PARAMHASH">ok_eq ASTRING, BSTRING, [TESTNAME], [PARAMHASH...]</A></A></B></DT>
 <DD>
 <I>Instance method.</I>  
 Convenience front end to ok(): test whether <CODE>ASTRING eq BSTRING</CODE>, and
 logs the operands as 'A' and 'B'.
 
-<P><DT><B><A NAME="item:ok_eqnum">ok_eqnum ANUM, BNUM, [TESTNAME], [PARAMHASH...]</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:ok_eqnum"><A NAME="item:ok_eqnum_ANUM_BNUM_TESTNAME_PARAMHASH">ok_eqnum ANUM, BNUM, [TESTNAME], [PARAMHASH...]</A></A></B></DT>
 <DD>
 <I>Instance method.</I>  
 Convenience front end to ok(): test whether <CODE>ANUM == BNUM</CODE>, and
@@ -233,25 +263,30 @@ logs the operands as 'A' and 'B'.
 
 
 <DL>
-<P><DT><B><A NAME="item:log_open">log_open PATH</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:log_open"><A NAME="item:log_open_PATH">log_open PATH</A></A></B></DT>
 <DD>
 <I>Instance method.</I>
 Open a log file for messages to be output to.  This is invoked
 for you automatically by <CODE>new(PATH)</CODE> and <CODE>typical()</CODE>.
 
-<P><DT><B><A NAME="item:log_close">log_close</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:log_close">log_close</A></B></DT>
 <DD>
 <I>Instance method.</I>
 Close the log file and stop logging.  
 You shouldn't need to invoke this directly; the destructor does it.
 
-<P><DT><B><A NAME="item:log">log MESSAGE...</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:log_warnings">log_warnings</A></B></DT>
+<DD>
+<I>Instance method.</I>
+Redefine $SIG{__WARN__} to log to STDERR and to the log. 
+
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:log"><A NAME="item:log_MESSAGE">log MESSAGE...</A></A></B></DT>
 <DD>
 <I>Instance method.</I>
 Log a message to the log file.  No alterations are made on the
 text of the message.  See msg() for an alternative.
 
-<P><DT><B><A NAME="item:msg">msg MESSAGE...</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:msg"><A NAME="item:msg_MESSAGE">msg MESSAGE...</A></A></B></DT>
 <DD>
 <I>Instance method.</I>
 Log a message to the log file.  Lines are prefixed with &quot;** &quot; for clarity,
@@ -267,7 +302,7 @@ and a terminating newline is forced.
 
 
 <DL>
-<P><DT><B><A NAME="item:catdir">catdir DIR, ..., DIR</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:catdir"><A NAME="item:catdir_DIR_DIR">catdir DIR, ..., DIR</A></A></B></DT>
 <DD>
 <I>Class/instance method.</I>
 Concatenate several directories into a path ending in a directory.
@@ -282,7 +317,7 @@ which is processed specially.
 <P>On Mac, the path <I>does</I> end in a ':'.
 On Unix, the path <I>does not</I> end in a '/'.
 
-<P><DT><B><A NAME="item:catfile">catfile DIR, ..., DIR, FILE</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:catfile"><A NAME="item:catfile_DIR_DIR_FILE">catfile DIR, ..., DIR, FILE</A></A></B></DT>
 <DD>
 <I>Class/instance method.</I>
 Like catdir(), but last element is assumed to be a file.
@@ -293,30 +328,39 @@ Note that, at a minimum, you must supply at least a single DIR.
 
 
 <P><HR>
+<A NAME="VERSION"><H2><A HREF="#__TOP__"><IMG SRC="icons/h1bullet.gif" ALT="Top" BORDER="0"></A> VERSION</H2></A>
+
+
+<P>$Id: TBone.pm,v 1.121 2001/08/17 01:56:59 eryq Exp $
+
+
+
+<P><HR>
 <A NAME="CHANGE_LOG"><H2><A HREF="#__TOP__"><IMG SRC="icons/h1bullet.gif" ALT="Top" BORDER="0"></A> CHANGE LOG</H2></A>
-
-
-<P><B>Current version:</B>
-$Id: TBone.pm,v 1.117 2000/08/16 05:08:09 eryq Exp $
 
 
 
 <DL>
-<P><DT><B><A NAME="item:Version">Version 1.116</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:Version"><A NAME="item:Version_1_120_2001_08_17">Version 1.120   (2001/08/17)</A></A></B></DT>
+<DD>
+Added log_warnings() to support the logging of SIG{__WARN__}
+messages to the log file (if any).
+
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:Version"><A NAME="item:Version_1_116_2000_03_23">Version 1.116   (2000/03/23)</A></A></B></DT>
 <DD>
 Cosmetic improvements only.
 
-<P><DT><B><A NAME="item:Version">Version 1.112</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:Version"><A NAME="item:Version_1_112_1999_05_12">Version 1.112   (1999/05/12)</A></A></B></DT>
 <DD>
 Added lightweight catdir() and catfile() (a la File::Spec)
 to enhance portability to Mac environment.
 
-<P><DT><B><A NAME="item:Version">Version 1.111</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:Version"><A NAME="item:Version_1_111_1999_04_18">Version 1.111   (1999/04/18)</A></A></B></DT>
 <DD>
 Now uses File::Basename to create &quot;typical&quot; logfile name,
 for portability.
 
-<P><DT><B><A NAME="item:Version">Version 1.110</A></B></DT>
+<P><DT><B><A HREF="#__TOP__"><IMG SRC="icons/itembullet.gif" ALT="Top" BORDER="0"></A> <A NAME="item:Version"><A NAME="item:Version_1_110_1999_04_17">Version 1.110   (1999/04/17)</A></A></B></DT>
 <DD>
 Fixed bug in constructor that surfaced if no log was being used. 
 
@@ -336,7 +380,7 @@ President, ZeeGee Software Inc. (<I><FILE><A HREF="http://www.zeegee.com">http:/
 
 <P><HR>
 <ADDRESS><FONT SIZE=-1>
-Generated Wed Aug 16 01:09:27 2000 by cvu_pod2html
+Generated Fri Aug 17 10:46:09 2001 by cvu_pod2html
 </FONT></ADDRESS>
 </FONT></BODY>
 </HTML>

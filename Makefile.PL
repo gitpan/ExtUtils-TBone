@@ -10,7 +10,7 @@ WriteMakefile(
 	      NAME         => 'ExtUtils::TBone',
 	      VERSION_FROM => "./lib/ExtUtils/TBone.pm",
 	      'dist'       => {
-		  PREOP    => "cvu_perl_preop",
+		  PREOP    => "cvu_perl_preop -m ExtUtils::TBone",
 		  COMPRESS => 'gzip',
 		  SUFFIX   => 'gz',
 	      }
