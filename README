@@ -25,7 +25,11 @@ SYNOPSIS
                "Do they match?",
                This => $this,
                That => $that);
-        
+         
+        # That last one could have also been written... 
+        $T->ok_eq($this, $that);            # does 'eq' and logs operands
+        $T->ok_eqnum($this, $that);         # does '==' and logs operands 
+         
         # End testing:
         $T->end;   
 

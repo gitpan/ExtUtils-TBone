@@ -90,6 +90,13 @@ and then write your t/*.t files like this:
 
 
 <P>
+<PRE>    # That last one could have also been written... 
+    $T-&gt;ok_eq($this, $that);            # does 'eq' and logs operands
+    $T-&gt;ok_eqnum($this, $that);         # does '==' and logs operands </PRE>
+
+
+
+<P>
 <PRE>    # End testing:
     $T-&gt;end;   </PRE>
 
@@ -281,6 +288,20 @@ treated as multiple values:
     3:   Fwd: &quot;that&quot;</PRE>
 
 
+
+<P><DT><B><A NAME="ok_eq">ok_eq ASTRING, BSTRING, [TESTNAME], [PARAMHASH...]</A></B><DD>
+
+<I>Instance method.</I>  
+Convenience front end to ok(): test whether <CODE>ASTRING eq BSTRING</CODE>, and
+logs the operands as 'A' and 'B'.
+
+
+<P><DT><B><A NAME="ok_eqnum">ok_eqnum ANUM, BNUM, [TESTNAME], [PARAMHASH...]</A></B><DD>
+
+<I>Instance method.</I>  
+Convenience front end to ok(): test whether <CODE>ANUM == BNUM</CODE>, and
+logs the operands as 'A' and 'B'.
+
 </DL>
 
 
@@ -329,7 +350,7 @@ VERSION</H1>
 
 
 <P>
-Revision: $Revision: 1.107 $
+Revision: $Revision: 1.109 $
 
 
 <P>
@@ -349,5 +370,5 @@ Eryq; President, Zero G Inc.
 
 
 <P><HR>
-<SMALL>Last updated: Thu Mar 26 01:46:34 1998 local time</SMALL></BODY>
+<SMALL>Last updated: Fri May  1 15:30:54 1998 local time</SMALL></BODY>
 </HTML>
