@@ -172,7 +172,7 @@ PUBLIC INTERFACE
         single DIR.
 
 CHANGE LOG
-    Current version: $Id: TBone.pm,v 1.113 1999/05/12 15:04:28 eryq Exp $
+    Current version: $Id: TBone.pm,v 1.114 1999/05/12 15:11:30 eryq Exp $
 
     Version 1.112
         Added lightweight catdir() and catfile() (a la File::Spec) to
